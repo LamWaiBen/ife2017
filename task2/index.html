@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>task1</title>
+	<title>task2</title>
 	<link rel="stylesheet" type="text/css" href="./css/reset.css">
 	<link rel="stylesheet" type="text/css" href="./css/app.css">
 </head>
@@ -120,38 +120,43 @@
 					<input type="password" id="passw2" name="password" value="">
 				</label>
 				<p class="sub_txt">密码请为6-16位英文数字</p>
-				<span class="tip">性别：</span>
-				<label for="man">
-					<input type="radio" name="sex" id="man">
-					<span>男</span>
-				</label>
-				<label for="woman">
-					<input type="radio" name="sex" id="woman">
-					<span>女</span>
-				</label>
-				<label for="city">
-					<span class="tip">城市：</span>
-					<select name="city" id="city">
-						<option>北京</option>
-						<option>上海</option>
-						<option>广州</option>
-						<option>深圳</option>
-					</select>
-				</label>
-				</label>
-				<span class="tip">爱好：</span>
-				<label for="sport">
-				<input type="checkbox" value="sport" id="sport">
-				<span>运动</span>
-				</label>
-				<label for="art">
-				<input type="checkbox" value="art" id="art">
-				<span>艺术</span>
-				</label>
-				<label for="science">
-				<input type="checkbox" value="science" id="science">
-				<span>科学</span>
-				</label>
+				<div>
+					<span class="tip">性别：</span>
+					<label for="man">
+						<input type="radio" name="sex" id="man">
+						<span>男</span>
+					</label>
+					<label for="woman">
+						<input type="radio" name="sex" id="woman">
+						<span>女</span>
+					</label>
+				</div>
+				<div>
+					<label for="city">
+						<span class="tip">城市：</span>
+						<select name="city" id="city">
+							<option>北京</option>
+							<option>上海</option>
+							<option>广州</option>
+							<option>深圳</option>
+						</select>
+					</label>
+				</div>
+				<div class="hobby">
+					<span class="tip">爱好：</span>
+					<label for="sport">
+					<input type="checkbox" value="sport" id="sport">
+					<span>运动</span>
+					</label>
+					<label for="art">
+					<input type="checkbox" value="art" id="art">
+					<span>艺术</span>
+					</label>
+					<label for="science">
+					<input type="checkbox" value="science" id="science">
+					<span>科学</span>
+					</label>
+				</div>	
 				<label for="self">
 					<span>个人描述：</span>
 					<textarea id="self"></textarea>
@@ -160,5 +165,6 @@
 			</form>
 		</div>
 	</aside>
+	<footer>版权所有@</footer>
 </body>
 </html>
