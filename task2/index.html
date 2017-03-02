@@ -3,15 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>task1</title>
+	<link rel="stylesheet" type="text/css" href="./css/reset.css">
+	<link rel="stylesheet" type="text/css" href="./css/app.css">
 </head>
 <body>
-	<h1>网站一级标题</h1>
-	<ul>
-		<li><a href="#">导航链接一</a></li>
-		<li><a href="#">导航链接二</a></li>
-		<li><a href="#">导航链接三</a></li>
-		<li><a href="#">导航链接四</a></li>
-	</ul>
+	<header class="header">
+		<img src="./img/logo.png">
+		<ul>
+			<li><a href="#">导航链接一</a></li>
+			<li><a href="#">导航链接二</a></li>
+			<li><a href="#">导航链接三</a></li>
+			<li><a href="#">导航链接四</a></li>
+		</ul>
+	</header>
 	<article>
 		<h1>文章一级标题</h1>
 		<h2>文章二级标题</h2>
@@ -32,18 +36,31 @@
 			<li>列表项目</li>
 		</ul>
 	</article>
-	<section>
+	<section class="pic_content">
 		<h1>图片</h1>
-		<p>好看的图片</p>
-		<img src="./img/pic1.png">
-		<p>好看的图片</p>
-		<img src="./img/pic1.png">
-		<p>好看的图片</p>
-		<img src="./img/pic1.png">
-		<p>好看的图片</p>
-		<img src="./img/pic1.png">
+		<div>
+			<p>好看的图片</p>
+			<img src="./img/pic1.png">
+		</div>		
+		<div>
+			<p>好看的图片</p>
+			<img src="./img/pic1.png">
+		</div>		
+		<div>
+			<p>好看的图片</p>
+			<img src="./img/pic1.png">
+		</div>
+		<div>
+			<p>好看的图片</p>
+			<img src="./img/pic1.png">
+		</div>
+		<div>
+			<p>好看的图片</p>
+			<img src="./img/pic1.png">
+		</div>
+
 	</section>
-	<article>
+	<article class="last">
 		<h1>最后一篇文章一级标题</h1>
 		<h2>文章耳机标题</h2>
 		<p>文章作者 文章发表时间</p>
@@ -52,8 +69,8 @@
 			<li>排名2</li>
 			<li>排名3</li>
 		</ol>
-		<p>下面是一个表格。给表格加了个border="1"貉绒你看出是一个表格</p>
-		<table border="1px solid #666">
+		<p>下面是一个表格。给表格加了个border="1"好让你看出是一个表格</p>
+		<table class="table">
 			<tr>
 				<th>表头1</th>
 				<th>表头2</th>
@@ -79,7 +96,7 @@
 				<td>表内容单元格</td>
 				<td><a href="#">操作</a></td>
 			</tr>
-			<tr>
+			<tr class="totle">
 				<td>总计</td>
 				<td colspan="2">1000</td>
 			</tr>
@@ -87,56 +104,61 @@
 	</article>
 	<aside>
 		<h1>这里以后是一个侧栏，这是侧栏的标题</h1>
-		<h1>侧栏注册窗口标题</h1>
-		<label for="mail">
-			<p>请输入邮箱地址：</p>
-			<input type="text" id="mail" name="mail" value="这是一个文本输入框">
-		</label>
-		<p>邮箱地址请按要求格式输入</p>
-		<label for="passw1">
-			<p>请输入密码：</p>
-			<input type="password" id="passw1" name="password" value="">
-		</label>
-		<label for="passw2">
-			<p>请输入密码：</p>
-			<input type="password" id="passw2" name="password" value="">
-		</label>
-		<p>密码请为6-16位英文数字</p>
-		<form action="">
-			<p>性别：</p>
-			<label for="man">
-				<input type="radio" name="sex" id="man">
-				<span>男</span>
-			</label>
-			<label for="woman">
-				<input type="radio" name="sex" id="woman">
-				<span>女</span>
-			</label>
-			<span>城市：</span>
-			<select name="city" id="city">
-				<option>北京</option>
-				<option>上海</option>
-				<option>广州</option>
-				<option>深圳</option>
-			</select>
-			</label>
-			<span>爱好：</span>
-			<label for="sport">
-			<input type="checkbox" value="sport" id="sport">
-			<span>运动</span>
-			</label>
-			<label for="art">
-			<input type="checkbox" value="art" id="art">
-			<span>艺术</span>
-			</label>
-			<label for="science">
-			<input type="checkbox" value="science" id="science">
-			<span>科学</span>
-			</label>
-			<span>个人描述：</span>
-			<textarea></textarea>
-			<input type="submit" name="submit">
-		</form>
+		<div class="aside_box">
+			<form action="">
+				<label for="mail">
+					<span class="tip">请输入邮箱地址：</span>
+					<input type="text" id="mail" name="mail" value="这是一个文本输入框">
+				</label>
+				<p class="sub_txt">邮箱地址请按要求格式输入</p>
+				<label for="passw1">
+					<span class="tip">请输入密码：</span>
+					<input type="password" id="passw1" name="password" value="">
+				</label>
+				<label for="passw2">
+					<span class="tip">请输入密码：</span>
+					<input type="password" id="passw2" name="password" value="">
+				</label>
+				<p class="sub_txt">密码请为6-16位英文数字</p>
+				<span class="tip">性别：</span>
+				<label for="man">
+					<input type="radio" name="sex" id="man">
+					<span>男</span>
+				</label>
+				<label for="woman">
+					<input type="radio" name="sex" id="woman">
+					<span>女</span>
+				</label>
+				<label for="city">
+					<span class="tip">城市：</span>
+					<select name="city" id="city">
+						<option>北京</option>
+						<option>上海</option>
+						<option>广州</option>
+						<option>深圳</option>
+					</select>
+				</label>
+				</label>
+				<span class="tip">爱好：</span>
+				<label for="sport">
+				<input type="checkbox" value="sport" id="sport">
+				<span>运动</span>
+				</label>
+				<label for="art">
+				<input type="checkbox" value="art" id="art">
+				<span>艺术</span>
+				</label>
+				<label for="science">
+				<input type="checkbox" value="science" id="science">
+				<span>科学</span>
+				</label>
+				<label for="self">
+					<span>个人描述：</span>
+					<textarea id="self"></textarea>
+				</label>
+				<input type="submit" name="submit">
+			</form>
+		</div>
 	</aside>
 </body>
 </html>
