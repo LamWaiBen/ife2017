@@ -1,0 +1,19 @@
+body {
+    font-family: Helvetica, Tahoma, Arial, STXihei, "åŽæ–‡ç»†é»‘", "Microsoft YaHei", "å¾®è½¯é›…é»‘", SimSun, "å®‹ä½“", Heiti, "é»‘ä½“", sans-serif;
+    font-size: 14px;
+    overflow-y: scroll;
+}
+
+.rowphotoRow {
+    white-space: nowrap;
+    margin-bottom: 8px;
+}
+.rowphotoRow div.rowphotoBox:first-child {
+    padding-left: 0;
+}
+.rowphotoBox {
+    height: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 8px;
+}
