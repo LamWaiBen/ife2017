@@ -13,7 +13,6 @@ var game={
 		this.tempMap= [];
 		this.stepNum=0;
 		this.step=[];
-		console.log(this.lv);
 	},
 	load:function(){
 		var self = this;
@@ -25,17 +24,18 @@ var game={
 			self.lv = Number($("#select_lv").val());
 			self.mapchange();
 		});
+		this.bindDirec();
 		this.map(this.Data[this.lv]);
 		this.personControl();
 	},
 	map:function(data){
-		let x= this.size.x , y = this.size.y;
+		var x= this.size.x , y = this.size.y;
 		this.init();
 		this.tempMap = data.map(function(data1){ //深拷贝二维数组
 			return data1.concat([]);
 		})
-		for(let i = 0 ; i < y ; i++){
-			for(let j =0 ; j < x ; j++){		
+		for(var i = 0 ; i < y ; i++){
+			for(var j =0 ; j < x ; j++){		
 				switch(data[i][j]){
 
 					case 0 :
@@ -65,6 +65,31 @@ var game={
 			}
 		}
 	},
+	bindDirec:function(){
+		var self = this;
+		$(".player").bind("click",function(ev){
+			var ev = window.event || ev,
+				target = ev.target || ev.srcElement;
+				switch (target.className) {
+					case "topArr":
+						self.personMove({x:0,y:-1});
+						break;
+					case "leftArr":
+						self.personMove({x:-1,y:0});
+						break;
+					case "bottomArr":
+						self.personMove({x:0,y:1});
+						break;
+					case "rightArr":
+						self.personMove({x:1,y:0});
+						break;
+							
+					default:
+						break;
+				}
+			
+		})
+	},
 	preLv:function(){
 		if(game.lv>0){
 			game.lv-=1;
@@ -74,7 +99,7 @@ var game={
 		}
 	},
 	nextLv:function(){
-		if(game.lv<4){
+		if(game.lv<game.Data.length-1){
 			game.lv+=1;
 			game.mapchange();
 		}else{
@@ -87,7 +112,7 @@ var game={
 		game.map(game.Data[game.lv]);
 	},
 	createElement:function(){
-		let ele = document.createElement("div");
+		var ele = document.createElement("div");
 		game.oWrap.append(ele);
 		return ele;
 	},
@@ -190,7 +215,7 @@ var game={
 				self.step.pop();
 				self.step.pop();
 				if(currentStep[2] && currentStep[2] == "box"){
-					let boxX = currentStep[0]-i,boxY = currentStep[1]-j;
+					var boxX = currentStep[0]-i,boxY = currentStep[1]-j;
 					console.log(self.tempMap[boxY][boxX],self.tempMap[boxY+j][boxX+i]);
 					if(self.tempMap[boxY][boxX] ==2){
 						self.tempMap[boxY][boxX] = 0;
@@ -265,7 +290,18 @@ var game={
 	      [1,1,1,1,1,1,0,0,1,0],
 	      [0,0,0,0,0,1,1,1,1,0],
 	      [0,0,0,0,0,0,0,0,0,0]
-	    ],[//漏了一个
+	    ],[
+	      [0,0,0,1,1,1,1,0,0,0],
+	      [0,0,0,1,3,3,1,0,0,0],
+	      [0,0,1,1,0,3,1,1,0,0],
+	      [0,0,1,0,0,2,3,1,0,0],
+	      [0,1,1,0,2,0,0,1,1,0],
+	      [0,1,0,0,1,2,2,0,1,0],
+	      [0,1,0,0,4,0,0,0,1,0],
+	      [0,1,1,1,1,1,1,1,1,0]
+
+	    ],
+	    [
 	      [0,1,1,1,1,1,1,1,0,0],
 	      [0,1,0,0,0,0,0,1,1,1],
 	      [1,1,2,1,1,1,0,0,0,1],
@@ -275,14 +311,51 @@ var game={
 	      [0,1,1,1,1,1,1,1,1,0],
 	      [0,0,0,0,0,0,0,0,0,0]
 	    ],[
-	      [0,0,0,0,0,0,0,0,0,0],
 	      [0,1,1,1,1,1,1,1,0,0],
-	      [0,1,0,0,0,0,0,1,1,1],
-	      [1,1,2,1,1,1,0,0,0,1],
-	      [1,0,4,0,2,0,0,2,0,1],
-	      [1,0,3,3,1,0,2,0,1,1],
-	      [1,1,3,3,1,0,0,0,1,0],
-	      [0,1,1,1,1,1,1,1,1,0]
+	      [1,1,4,0,2,0,0,1,1,0],
+	      [1,0,2,3,3,3,2,0,1,0],
+	      [1,0,1,0,0,0,1,0,1,0],
+	      [1,0,2,3,3,3,2,0,1,0],
+	      [1,1,0,0,2,0,0,1,1,0],
+	      [0,1,1,1,1,1,1,1,0,0],
+	      [0,0,0,0,0,0,0,0,0,0]
+	    ],
+	    [
+	      [0,0,0,1,1,1,1,1,1,1],
+	      [0,0,1,1,0,0,1,0,4,1],
+	      [0,0,1,0,0,0,1,0,0,1],
+	      [0,0,1,2,0,2,0,2,0,1],
+	      [0,0,1,0,2,1,1,0,0,1],
+	      [1,1,1,0,2,0,1,0,1,1],
+	      [1,3,3,3,3,3,0,0,1,0],
+	      [1,1,1,1,1,1,1,1,1,0]
+	    ],[
+	      [0,0,1,1,1,1,1,0,0,0],
+	      [0,0,1,0,3,0,1,1,0,0],
+	      [0,1,1,2,3,2,0,1,0,0],
+	      [0,1,0,2,3,0,0,1,0,0],
+	      [0,1,4,0,3,2,0,1,0,0],
+	      [0,1,1,2,3,2,0,1,0,0],
+	      [0,0,1,0,3,0,1,1,0,0],
+	      [0,0,1,1,1,1,1,0,0,0]
+	    ],[
+	      [0,0,1,1,1,1,1,0,0,0],
+	      [0,0,1,0,4,0,1,1,1,0],
+	      [0,1,1,2,1,2,0,0,1,0],
+	      [0,1,0,3,3,0,3,0,1,0],
+	      [0,1,0,0,2,2,0,1,1,0],
+	      [0,1,1,1,0,1,3,1,0,0],
+	      [0,0,0,1,0,0,0,1,0,0],
+	      [0,0,0,1,1,1,1,1,0,0]	
+	    ],[
+	      [1,1,1,1,1,1,1,1,1,1],
+	      [1,0,0,0,1,0,0,0,0,1],
+	      [1,0,2,0,1,3,0,0,0,1],
+	      [1,4,0,2,2,0,0,1,3,1],
+	      [1,0,2,0,1,3,0,0,0,1],
+	      [1,0,0,2,1,3,0,3,0,1],
+	      [1,1,0,0,1,1,1,1,1,1],
+	      [0,1,1,1,1,0,0,0,0,0]
 	    ]
 	],
 }
