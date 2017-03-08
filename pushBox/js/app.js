@@ -255,8 +255,14 @@ var game={
 			})
 		});
 		if(temp){
-			alert("恭喜通关");
-			this.nextLv();
+			setTimeout(function(){
+				if(game.lv<(game.Data.length-1)){
+					alert("恭喜进入下一关！")
+					game.nextLv();
+				}else{
+					alert("恭喜您已通关游戏！")
+				}
+			}, 500)
 		}
 	},
 	//10x8格子  0：空地，1：围墙，2：箱子，3：目的地，4：人物
