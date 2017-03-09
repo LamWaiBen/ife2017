@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TREE</title>
+	<link rel="stylesheet" href="css/app.css">
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+	<ul id="container">
+	</ul>
+	<script type="text/javascript">
+	var container = document.getElementById("container"),
+		nodes = [ {name: "父节点1", children: [ {name: "子节点1"}, {name: "子节点2"} ]}, 
+				  {name: "父节点2", children: [ {name: "子节点3"}, {name: "子节点4", children:[ {name:"子节点5"} ]} ]},
+				  {name: "Node", children:[ {name:"Node1"}, {name:"Node2",children:[{name:"Node2-1"},{name:"Node2-2"},{name:"Node2-3"},{name:"Node2-4"},{name:"Node2-5",children:[{name:"Node2-5-1"},{name:"Node2-5-2"},{name:"Node2-5-3"}]}]}, {name:"Node3",children:[{name:"Node3-1"},{name:"Node3-2"},{name:"Node3-3"},{name:"Node3-4"},{name:"Node3-5"},{name:"Node3-6"}]}, {name:"Node4",children:[{name:"Node4-1"},{name:"Node4-2"},{name:"Node4-3"}]}, {name:"Node5"},]} ];
+	var tree = new Tree(container);
+	tree.createTree(container,nodes);
+	</script>
+</body>
+</html>
